@@ -1,0 +1,19 @@
+{
+  "name": "sails-hook-eureca",
+  "version": "0.0.1",
+  "description": "Eureca.io Server integration",
+  "main": "index.js",
+  "sails": {
+    "isHook": true,
+    "hookName": "eureca"
+  },
+  "devDependencies": {
+    "sails": "~0.11.0"
+  },
+  "dependencies": {
+    "camel-case": "^3.0.0",
+    "engine.io": "^1.6.11",
+    "eureca.io": "^0.6.42",
+    "lodash": "^4.13.1"
+  }
+}
