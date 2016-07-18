@@ -1,6 +1,6 @@
 {
   "name": "sails-hook-eureca",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Eureca.io Server integration",
   "main": "index.js",
   "sails": {
@@ -15,5 +15,9 @@
     "engine.io": "^1.6.11",
     "eureca.io": "^0.6.42",
     "lodash": "^4.13.1"
+  },
+  "repository" : {
+    "type" : "Git",
+    "url" : "https://github.com/trkbrkr2000/sails-hook-eureca"
   }
 }
