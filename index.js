@@ -41,7 +41,7 @@ module.exports = function eureca(sails) {
 
 
             checkDirectorySync(path.join(sails.config.appPath, 'api', 'eureca'))
-            self.server = new Eureca.Server({});
+            self.server = new Eureca.Server({ prefix : sails.config[this.configKey].prefix});
             self.server.attach(sails.hooks.http.server);
 
             fs.readdirSync(path.join(sails.config.appPath, 'api', 'eureca')).forEach(function (file) {
