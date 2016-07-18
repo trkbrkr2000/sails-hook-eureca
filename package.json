@@ -3,6 +3,18 @@
   "version": "0.0.2",
   "description": "Eureca.io Server integration",
   "main": "index.js",
+  "keywords": [
+    "eureca.io",
+    "RPC",
+    "Web Sockets"
+  ],
+  "license": {
+    "license": "MIT"
+  },
+  "bugs": {
+    "url": "https://github.com/trkbrkr2000/sails-hook-eureca/issues",
+    "email": "trkbrkr2000@gmail.com"
+  },
   "sails": {
     "isHook": true,
     "hookName": "eureca"
@@ -16,8 +28,12 @@
     "eureca.io": "^0.6.42",
     "lodash": "^4.13.1"
   },
-  "repository" : {
-    "type" : "Git",
-    "url" : "https://github.com/trkbrkr2000/sails-hook-eureca"
+  "repository": {
+    "type": "Git",
+    "url": "https://github.com/trkbrkr2000/sails-hook-eureca"
+  },
+  "author" : {
+    "name" : "Jim Livingston",
+    "email" : "trkbrkr2000@gmail.com"
   }
 }
