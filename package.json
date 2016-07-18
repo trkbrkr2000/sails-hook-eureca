@@ -1,6 +1,6 @@
 {
   "name": "sails-hook-eureca",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Eureca.io Server integration",
   "main": "index.js",
   "keywords": [
