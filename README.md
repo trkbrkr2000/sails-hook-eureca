@@ -47,7 +47,7 @@ module.exports = {
             context.return(data);
         },
         function(err){
-            context.return(data);
+            context.return(err);
         });
     }
 }
