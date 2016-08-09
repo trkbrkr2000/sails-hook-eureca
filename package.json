@@ -35,5 +35,11 @@
   "author" : {
     "name" : "Jim Livingston",
     "email" : "trkbrkr2000@gmail.com"
+  },
+   "publishConfig": {
+    "tag": "latest"
+  },
+  "release": {
+    "branch": "master"
   }
 }
