@@ -39,10 +39,11 @@ module.exports = {
     //Tell the eureca.io client context that it will be using
     //and asyncronous call that will trigger the onReady or then
     //when the context.return method is called.
-    var context = this;
-    context.async = true;
-    
+   
     find : function(query){
+        var context = this;
+        context.async = true;
+    
         Sample.find(query).then(function(data){
             context.return(data);
         },
