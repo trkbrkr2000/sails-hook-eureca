@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Sails-hook-eureca by trkbrkr2000</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/trkbrkr2000/sails-hook-eureca">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/trkbrkr2000/sails-hook-eureca/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/trkbrkr2000/sails-hook-eureca/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Sails-hook-eureca</h1>
+          <p>This project will make it so erureca.io server can be integrated with Sails</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/trkbrkr2000">trkbrkr2000</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
+<a id="sails-hook-eureca" class="anchor" href="#sails-hook-eureca" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>sails-hook-eureca</h1>
+
+<p>Sails hook to integrate <a href="http://eureca.io/">eureca.io</a></p>
+
+<p>This library is not to replace sails.io that is built in, but to supplement the capabilities of realtime communications and control
+using eureca.io.</p>
+
+<h3>
+<a id="configuration" class="anchor" href="#configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configuration</h3>
+
+<pre><code>config/eureca.js
+</code></pre>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c1">module</span>.<span class="pl-smi">exports</span> <span class="pl-k">=</span> {
+    prefix<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>eureca.io<span class="pl-pds">'</span></span>,
+    <span class="pl-en">onConnect</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">context</span>) {
+
+    },
+    <span class="pl-en">onDisconnect</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">context</span>) {
+
+    },
+    <span class="pl-en">onMessage</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">msg</span>) {
+
+    },
+    <span class="pl-en">onError</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">err</span>) {
+
+    }
+}</pre></div>
+
+<h3>
+<a id="sample-controller" class="anchor" href="#sample-controller" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Sample Controller</h3>
+
+<p>Each module that is in the api/eureca folder will be exported on the EurecaServer instances exports object.</p>
+
+<p>The below example demonstrates how to provide access to the Sample model's find method.</p>
+
+<pre><code>api/eureca/Sample.js
+</code></pre>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c1">module</span>.<span class="pl-smi">exports</span> <span class="pl-k">=</span> {
+    <span class="pl-c">//Tell the eureca.io client context that it will be using</span>
+    <span class="pl-c">//and asyncronous call that will trigger the onReady or then</span>
+    <span class="pl-c">//when the context.return method is called.</span>
+
+    <span class="pl-en">find</span> <span class="pl-k">:</span> <span class="pl-k">function</span>(<span class="pl-smi">query</span>){
+        <span class="pl-k">var</span> context <span class="pl-k">=</span> <span class="pl-v">this</span>;
+        <span class="pl-smi">context</span>.<span class="pl-smi">async</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+
+        <span class="pl-smi">Sample</span>.<span class="pl-c1">find</span>(query).<span class="pl-en">then</span>(<span class="pl-k">function</span>(<span class="pl-smi">data</span>){
+            <span class="pl-smi">context</span>.<span class="pl-en">return</span>(data);
+        },
+        <span class="pl-k">function</span>(<span class="pl-smi">err</span>){
+            <span class="pl-smi">context</span>.<span class="pl-en">return</span>(err);
+        });
+    }
+}</pre></div>
+
+<p>please feel free to open up any <a href="https://github.com/trkbrkr2000/sails-hook-eureca/issues">issue on GitHub</a> to drop in a suggestion or something.</p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
