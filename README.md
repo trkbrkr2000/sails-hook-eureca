@@ -23,7 +23,8 @@ module.exports = {
     },
     onError: function (err) {
     
-    }
+    },
+    allow: ['foo']
 }
 ```
 
