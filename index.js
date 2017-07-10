@@ -28,20 +28,18 @@ module.exports = function eureca(sails) {
                 onMessage: function () {
                 },
                 onError: function () {
-                }
+                },
+                allow: []
             }
         },
         configure: function () {
-
 
         },
         initialize: function (cb) {
             var self = this;
 
-
-
             checkDirectorySync(path.join(sails.config.appPath, 'api', 'eureca'))
-            self.server = new Eureca.Server({ prefix : sails.config[this.configKey].prefix});
+            self.server = new Eureca.Server({ prefix: sails.config[this.configKey].prefix, allow: sails.config[this.configKey].allow });
             self.server.attach(sails.hooks.http.server);
 
             fs.readdirSync(path.join(sails.config.appPath, 'api', 'eureca')).forEach(function (file) {
@@ -49,9 +47,9 @@ module.exports = function eureca(sails) {
             });
 
             self.server.onConnect(sails.config[this.configKey].onConnect);
-            self.server.onConnect(sails.config[this.configKey].onDisconnect);
-            self.server.onConnect(sails.config[this.configKey].onMessage);
-            self.server.onConnect(sails.config[this.configKey].onError);
+            self.server.onDisconnect(sails.config[this.configKey].onDisconnect);
+            self.server.onMessage(sails.config[this.configKey].onMessage);
+            self.server.onError(sails.config[this.configKey].onError);
 
             return cb();
 
